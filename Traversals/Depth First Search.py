@@ -54,13 +54,14 @@ class BinarySearchTree:
       self.preorder(currnode.right,mylist)
     return mylist
 
+#According to Andre's video , below is easily understandable
 
   def postorder(self,currnode,mylist):
-    if currnode != None:
+    if currnode.left:
       self.postorder(currnode.left,mylist)
+    if currnode.right:
       self.postorder(currnode.right,mylist)
-      mylist.append(currnode.val)
-    print(mylist)
+    mylist.append(currnode.val)
     return mylist
     
       
