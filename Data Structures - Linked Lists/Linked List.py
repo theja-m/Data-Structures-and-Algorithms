@@ -38,6 +38,9 @@ class LinkedList():
     if index>=self.length:
       self.append(data)
       return 
+    if index ==0:
+      self.prepend(data)
+      return
     while i<self.length:
       if i == index-1:
         temp.next , new_node.next = new_node , temp.next
