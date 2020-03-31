@@ -53,6 +53,9 @@ class LinkedList():
   def remove(self,index):
     temp = self.head
     i=0
+    if index>self.length:
+      print("Entered wrong index")
+      
     while i<self.length:
       if index == 0:
         self.head = temp.next
