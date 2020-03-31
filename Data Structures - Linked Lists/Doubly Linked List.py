@@ -46,6 +46,10 @@ class DoublyLinkedList:
             self.length+=1
 
     def remove(self,index):
+        if index==0:
+            self.head=self.head.next
+            self.length-=1
+            return
         if index == self.length-1:
             self.tail = self.tail.prev
             self.tail.next = None

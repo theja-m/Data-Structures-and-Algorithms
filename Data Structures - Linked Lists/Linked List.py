@@ -38,6 +38,9 @@ class LinkedList():
     if index>=self.length:
       self.append(data)
       return 
+    if index ==0:
+      self.prepend(data)
+      return
     while i<self.length:
       if i == index-1:
         temp.next , new_node.next = new_node , temp.next
@@ -50,6 +53,9 @@ class LinkedList():
   def remove(self,index):
     temp = self.head
     i=0
+    if index>self.length:
+      print("Entered wrong index")
+      
     while i<self.length:
       if index == 0:
         self.head = temp.next
