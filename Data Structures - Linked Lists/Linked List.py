@@ -61,12 +61,16 @@ class LinkedList():
         self.head = temp.next
         self.length -= 1   
         break       
-      if i == self.length-1:
-        temp.next = None
-        self.tail = temp
-        self.length -= 1
-        break 
+      # i will never reach the last node, since i will stop at index-1
+      # the below block will never run
+      # if i == self.length-1:
+      #   print('hi')
+      #   temp.next = None
+      #   self.tail = temp
+      #   self.length -= 1
+      #   break 
       if i == index-1:
+        # when i reach the node before the last node, temp.next.next = None by definition
         temp.next = temp.next.next
         self.length-=1
         break
@@ -99,6 +103,6 @@ l.append(6)
 l.prepend(1)
 l.insert(2,99)
 l.insert(34,23)
-#l.remove(4)
+l.remove(4)
 l.reverse()
 l.printl()
