@@ -50,11 +50,6 @@ class DoublyLinkedList:
             self.head=self.head.next
             self.length-=1
             return
-        if index == self.length-1:
-            self.tail = self.tail.prev
-            self.tail.next = None
-            self.length -= 1
-            return
         leader = self.traversetoindex(index-1)
         unwanted_node = leader.next
         holder = unwanted_node.next
@@ -86,5 +81,5 @@ d.append(5)
 d.append(6)
 d.prepend(1)
 d.insert(2,22)
-d.remove(3)
+d.remove(4)
 d.printt()
