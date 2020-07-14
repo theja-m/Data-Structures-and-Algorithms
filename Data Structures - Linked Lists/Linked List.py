@@ -61,7 +61,7 @@ class LinkedList():
         self.head = temp.next
         self.length -= 1   
         break       
-      if i == self.length-1:
+      if i == self.length-2:
         temp.next = None
         self.tail = temp
         self.length -= 1
@@ -99,6 +99,7 @@ l.append(6)
 l.prepend(1)
 l.insert(2,99)
 l.insert(34,23)
-#l.remove(4)
+l.remove(5)
 l.reverse()
 l.printl()
+print(l.head.data, l.tail.data)
