@@ -21,6 +21,24 @@ print(memoizedadd80(6))
 print(memoizedadd80(6))
 
 #Memoization 2
+def memoizedadd80():
+  cache = {}
+
+  def memoized(n):
+	  if n in cache:
+	    return n + 80
+	  else:
+	    print('Long time')
+	    cache[n] = n+80
+	    return cache[n]
+  return memoized
+
+memo = memoizedadd80()
+print(memo(7))
+print(memo(7))
+
+
+
 # https://docs.python.org/3.3/library/functools.html --> Doc for lru_cache
 
 from functools import lru_cache
