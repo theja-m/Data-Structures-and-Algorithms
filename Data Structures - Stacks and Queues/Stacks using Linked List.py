@@ -19,28 +19,28 @@ class Stack:
       self.top = self.bottom
       self.length = 1
     else:
-      self.top.next = new_node
-      self.top = self.top.next
+      new_node.next = self.top
+      self.top = new_node
       self.length += 1
+      # print("top:",self.top.data,"top next:",self.top.next.data)
 
   def pop(self):
-    i = 1
-    curr_node = self.bottom
-    while i != self.length-1:
-      curr_node = curr_node.next
-      i+=1
-    popped_value = curr_node.next
-    curr_node.next = None
-    self.top = curr_node
+    if not self.top:
+      return None
+    holderPointer = self.top
+    self.top = self.top.next
     self.length -= 1
-    return popped_value.data
+    if self.length==0:
+      self.bottom = None
+    return holderPointer.data
 
   def printt(self):
-    temp = self.bottom
+    temp = self.top
     while temp != None:
       print(temp.data , end = ' -> ')
       temp = temp.next
     print()
+
 mystack = Stack()
 mystack.push('google')
 mystack.push('microsoft')
