@@ -1,7 +1,9 @@
+
 from random import randint
-class Hashtable():
-  def __init__(self):
-    self.mydict = ['None']*50
+class Hashtable:
+  def __init__(self,size):
+    self.size = size
+    self.mydict = ['None']*self.size
     self.addr_list = []
   
   def __str__(self):
@@ -9,7 +11,7 @@ class Hashtable():
 
   def _hash(self):
     while True:
-      x = randint(0,49)
+      x = randint(0,self.size-1)
       if x not in self.addr_list:
         return x
   
@@ -30,7 +32,7 @@ class Hashtable():
       key_arr.append(self.mydict[i][0])
     return key_arr
 
-h=Hashtable()
+h=Hashtable(10)
 h.set('grapes',1000)
 h.set('apples',10)
 h.set('oranges',300)
