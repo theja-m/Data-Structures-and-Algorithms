@@ -11,24 +11,26 @@ class LinkedList():
   def __init__(self):
     self.head = None
     self.tail = None
+    self.length = 0
   
   def append(self,data):
     new_node = Node(data)
     if self.head == None:
       self.head = new_node
       self.tail = self.head
-      self.length = 1
     else:
       self.tail.next = new_node
       self.tail = new_node 
-      self.length += 1
+    self.length += 1
 
   def prepend(self,data):
     new_node = Node(data)
-    new_node.next = self.head 
-    self.head = new_node
-    
-
+    if self.head == None:
+      self.head = new_node
+      self.tail = self.head
+    else:
+      new_node.next = self.head 
+      self.head = new_node
     self.length += 1
 
   def insert(self,index,data):
@@ -86,6 +88,39 @@ class LinkedList():
       temp.next = prev
       prev = temp  
     self.head = temp
+
+  # insert2(), remove2() using traverse() as used in the Udemy course
+  def insert2(self,index,data):
+    if index > self.length:
+      self.append(data)
+    elif index <= 0:
+      self.prepend(data)
+    else:
+      new_node = Node(data)
+      current_node = self.traverse(index)
+      temp = current_node.next
+      current_node.next = new_node
+      new_node.next = temp
+      self.length += 1
+
+  def remove2(self,index):
+    if index >= self.length:
+      print("Entered wrong index")
+      return None
+    elif index <= 0:
+      self.head = self.head.next
+    else:
+      current_node = self.traverse(index)
+      current_node.next = current_node.next.next
+    self.length -= 1
+
+  def traverse(self,index):
+    current_node = self.head
+    for i in range(index-1):
+      current_node = current_node.next
+    return current_node
+
+
     
 
 l = LinkedList()
@@ -95,6 +130,8 @@ l.append(6)
 l.prepend(1)
 l.insert(2,99)
 l.insert(34,23)
+l.insert2(0,2)
+l.remove2(4)
 l.remove(5)
 l.reverse()
 l.printl()
