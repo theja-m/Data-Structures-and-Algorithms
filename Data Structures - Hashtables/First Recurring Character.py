@@ -9,7 +9,7 @@ def func(mylist):
 
 def hashtable(mylist):
   mydict = {}
-  for i in range(len(mylist)):
+  for i in range(0,len(mylist)):
     if mylist[i] in mydict:
       return mylist[i]
     else:
