@@ -21,7 +21,7 @@ def hashtable(mylist):
 # as the hashtable function
 def func2(mylist):
 
-  for i in range(len(mylist)):
+  for i in range(0,len(mylist)):
     temp = []
     for j in range(i+1,len(mylist)):
       if mylist[j] in temp:
