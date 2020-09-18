@@ -27,7 +27,13 @@ class Array:
     del self.data[self.length-1]
     self.length-=1
     return deleteditem
-
+  
+  def insert(self,index,value):
+    for i in range(self.length,index,-1):
+      self.li[i] = self.li[i-1]
+    self.li[index] = value
+    self.length += 1 
+    
 arr=Array()
 arr.push(3)
 arr.push('hi')
