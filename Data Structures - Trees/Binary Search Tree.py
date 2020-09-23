@@ -55,6 +55,38 @@ class BinarySearchTree:
       print(str(curr_node.data))
       self.printt(curr_node.right)
 
+def deletion(root,key):
+    if root is None :
+        return root
+    if key :
+        if key < root.data :
+            root.left = deletion(root.left,key) 
+        elif key > root.data :
+            root.right = deletion(root.right,key)
+        elif key == root.data :
+            
+            if root.left is None :
+                if root.right is not None :
+                    temp = root.right 
+                    root = None 
+                    return temp
+                root = None 
+                return root
+            elif root.right is None :
+                temp = root.left
+                root = None
+                return temp
+            temp = inorderSucessor(root.right)
+            root.data = temp.data
+            root.right = deletion(root.right,temp.data)
+    return root
+
+def inorderSucessor(node):
+	current = node 
+	while(current.left is not None): 
+		current = current.left 
+	return current 
+      
 
 bst = BinarySearchTree()
 bst.insert(10)
