@@ -65,6 +65,8 @@ class LinkedList():
       if i == index-1:
         temp.next = temp.next.next
         self.length-=1
+        if temp.next is None:
+          self.tail = temp
         break
       i+=1
       temp = temp.next
