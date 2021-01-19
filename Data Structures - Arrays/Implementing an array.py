@@ -23,10 +23,8 @@ class Array:
     deleteditem = self.data[index]
     for i in range(index,self.length-1):
       self.data[i] = self.data[i+1]
+    self.pop()
 
-    del self.data[self.length-1]
-    self.length-=1
-    return deleteditem
 
 arr=Array()
 arr.push(3)
