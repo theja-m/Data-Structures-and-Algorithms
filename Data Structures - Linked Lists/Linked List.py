@@ -96,6 +96,8 @@ l.prepend(1)
 l.insert(2,99)
 l.insert(34,23)
 l.remove(5)
+l.remove(10)
 l.reverse()
 l.printl()
+
 print(l.head.data, l.tail.data)
