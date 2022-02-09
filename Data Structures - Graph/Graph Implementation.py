@@ -15,12 +15,11 @@ class Graph:
     self.adjacentlist[node1].append(node2)
     self.adjacentlist[node2].append(node1)
 
-  def showconnection(self):
-    for x in self.adjacentlist:
-      print(x , end = '-->')
-      for i in self.adjacentlist[x]:
-        print(i , end = ' ') 
-      print()
+  def showConnection(self):
+    for vertex, neighbors in self.adjacentlist.items():
+      print(vertex, end = '-->')
+      print(' '.join(neighbors))
+      
 
 myGraph = Graph()
 myGraph.addVertex('0')
