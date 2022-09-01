@@ -55,8 +55,9 @@ class Hashtable:
         return None
 
     def keys(self):
-
-        # Prints out a list of the keys in the hashtable
+        """
+        Prints out a list of the keys in the hashtable
+        """
 
         hash_keys = []
 
@@ -67,6 +68,21 @@ class Hashtable:
             elif item:
                 hash_keys.append(item[0][0])
         return hash_keys
+
+    def values(self):
+        """
+        Prints out a list of the keys in the hashtable
+        """
+
+        hash_values = []
+
+        for item in self.hashmap:
+            if item and len(item) > 1:
+                for i in item:
+                    hash_values.append(i[1])
+            elif item:
+                hash_values.append(item[0][1])
+        return hash_values
 
 
 h = Hashtable()
@@ -79,3 +95,4 @@ print(h)
 h.remove('apples')
 print(h)
 print(h.keys())
+print(h.values())
