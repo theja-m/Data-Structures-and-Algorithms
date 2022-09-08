@@ -14,7 +14,7 @@ def fib(num):
 def fibonacci(num):
     if num < 2:
         return num
-    return fib(num-1) + fib(num-2)
+    return fibonacci(num-1) + fibonacci(num-2)
 
 
 print([fib(i) for i in range(10)])
