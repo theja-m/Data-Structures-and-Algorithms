@@ -1,21 +1,28 @@
-def func(mylist):
+def first_recurring_character(array):
 
-  for i in range(0,len(mylist)):
-    for j in range(i+1,len(mylist)):
-      if mylist[i] == mylist[j]:
-        return mylist[i] 
-  return 0
+  total_items = len(array)-1
+  first_RC = None
+  for i in range(total_items):
+      for j in range(i+1, total_items):
+          if array[i] == array[j]:
+              if first_RC is None or first_RC > j:
+                  first_RC = j
+  if first_RC:
+      return array[first_RC]
+  return None
 
-def hashtable(mylist):
-  mydict = {}
-  for i in range(0,len(mylist)):
-    if mylist[i] in mydict:
-      return mylist[i]
+def first_recurring_character_hashtable(array):
+  my_dict = {}
+  for i in range(0,len(array)):
+    if array[i] in my_dict:
+      return array[i]
     else:
-      mydict[mylist[i]]=i
-  return 0
+      my_dict[array[i]]=i
+  return None
   
 
-mylist = [2,1,1,2,3,4,5]
-x = hashtable(mylist)
-print(x)
+my_list = [2,1,1,2,3,4,5] # Output 1 instead of 2
+first_RC = first_recurring_character(my_list)
+first_RC_hashtable = first_recurring_character_hashtable(my_list)
+print(first_RC)
+print(first_RC_hashtable)
