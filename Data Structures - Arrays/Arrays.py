@@ -28,7 +28,7 @@ print(strings)
 #pop()	Removes the element at the specified position
 #remove()	Removes the first item with the specified value
 #reverse()	Reverses the order of the list
-#ort()	Sorts the list
+#sort()	Sorts the list
 
 #List objects are implemented as arrays. 
 #They are optimized for fast fixed-length operations and incur O(n) memory movement costs for pop(0) and insert(0, v) 
