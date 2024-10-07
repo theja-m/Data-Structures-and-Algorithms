@@ -85,7 +85,7 @@ class LinkedList():
       self.head = self.head.next
       temp.next = prev
       prev = temp  
-    self.head = temp
+    self.head = prev
     
 
 l = LinkedList()
